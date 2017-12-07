@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    /* overflow: hidden; */
+}
+
+body {
+    background-color: #DADADA;
+}
+
+.white {
+    color: #fff;
+}
+
+.my-card {
+    background: white;
+}
+
+.page-content {
+    margin-top: 20px;
+}
