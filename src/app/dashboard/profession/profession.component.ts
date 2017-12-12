@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 declare var $;
 
 @Component({
@@ -19,4 +20,5 @@ export class ProfessionComponent implements OnInit {
       closable : false
     });
   }
+
 }
