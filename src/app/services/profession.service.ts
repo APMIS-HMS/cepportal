@@ -9,8 +9,13 @@ export class ProfessionService {
 
   constructor(public http: Http) { }
 
-  get() {
+  fetch() {
     return this.http.get(CONSTANTS.PROFESSION)
       .map(res => res.json());
   }
+  get(id) {
+    return this.http.get(CONSTANTS.PROFESSION + '/' + id)
+    .map(res => res.json());
+  }
+
 }

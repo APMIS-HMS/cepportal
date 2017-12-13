@@ -31,6 +31,7 @@ body {
     background-color: #FCFCFC;
     box-shadow: 0 5px 10px 0 rgba(154, 164, 175, 0.1);
     transition: 0.2s;
+    color: #222;
 }
 
 .box:hover {

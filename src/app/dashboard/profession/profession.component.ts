@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProfessionService } from '../../services/profession.service';
 import { Profession } from '../../models/profession';
 import { TitleCasePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 declare var $;
@@ -14,7 +15,7 @@ declare var $;
 export class ProfessionComponent implements OnInit {
   professions: Profession[];
 
-  constructor(public professionService: ProfessionService) { }
+  constructor(public professionService: ProfessionService, public router: Router) { }
 
   ngOnInit() {
     this.getProfession();
@@ -28,11 +29,14 @@ export class ProfessionComponent implements OnInit {
   }
 
   getProfession() {
-    this.professionService.get()
+    this.professionService.fetch()
       .subscribe(res => {
         this.professions = res.data;
         console.log(this.professions);
       });
   }
 
+  getProfessionDetails(id) {
+    this.router.navigate(['/dashboard/profession', id]);
+  }
 }

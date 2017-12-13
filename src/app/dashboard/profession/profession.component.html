@@ -9,14 +9,14 @@
         </div>
     </div>
     <div class="row">
-        <div *ngFor="let profession of professions" class="col-lg-4">
-            <div class="box">
+        <a *ngFor="let profession of professions" class="col-lg-4">
+            <div class="box" (click)="getProfessionDetails(profession._id)">
                 <div class="row">
                     <div class="col-sm-9 title">{{profession.name | titlecase}}</div>
                     <div class="col-sm-3 tag">{{profession.caders.length}} Caders</div>
                 </div>
             </div>
-        </div>
+        </a>
     </div>
 </div>
 <add-profession></add-profession>
