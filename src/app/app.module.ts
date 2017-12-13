@@ -8,6 +8,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SummaryComponent } from './dashboard/summary/summary.component';
 import { ProfessionComponent } from './dashboard/profession/profession.component';
 import { AddProfessionComponent } from './dashboard/profession/add-profession/add-profession.component';
+import { ProfessionService } from './services/profession.service';
+import { HttpModule } from '@angular/http';
+import { ProfessionCaderComponent } from './dashboard/profession/profession-cader/profession-cader.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,15 @@ import { AddProfessionComponent } from './dashboard/profession/add-profession/ad
     DashboardComponent,
     SummaryComponent,
     ProfessionComponent,
-    AddProfessionComponent
+    AddProfessionComponent,
+    ProfessionCaderComponent
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ProfessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

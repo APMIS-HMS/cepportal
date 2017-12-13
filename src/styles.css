@@ -9,7 +9,7 @@ body {
 }
 
 body {
-    background-color: #DADADA;
+    background-color: #eeeeee;
 }
 
 .white {
@@ -22,4 +22,41 @@ body {
 
 .page-content {
     margin-top: 20px;
+}
+
+.box {
+    padding: 20px 30px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    background-color: #FCFCFC;
+    box-shadow: 0 5px 10px 0 rgba(154, 164, 175, 0.1);
+    transition: 0.2s;
+}
+
+.box:hover {
+    z-index: 100;
+    background-color: #6c6cff;
+    transform: scale(1.03);
+    cursor: pointer;
+    color: #fff;
+    box-shadow: 0 10px 20px 0 rgba(154, 164, 175, 0.4);
+}
+
+.title {
+    font-weight: 900;
+}
+
+.tag {
+    font-weight: 900;
+    opacity: 0.4;
+    text-align: right;
+}
+
+.thin {
+    font-weight: 100;
+}
+
+h2.title {
+    font-weight: 100;
+    font-size: 24px;
 }

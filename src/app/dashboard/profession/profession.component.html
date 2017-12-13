@@ -1,17 +1,20 @@
 <div class="page-content">
-    <h1>Profession &nbsp;
-        <a (click)="addProfessionView()" class="ui green icon button">
-            <i class="icon add"></i>
-        </a>
-    </h1>
-    <hr>
-    <summary></summary>
-    <!-- <hr> -->
-    <h5>List of Professions</h5>
+    <div class="container-fluid">
+        <div class="row">
+            <h2 class="col-lg-10 title">Professions
+            </h2>
+            <a (click)="addProfessionView()" class="col-lg-2 box">
+                <i class="icon add"></i> Add Profession
+            </a>
+        </div>
+    </div>
     <div class="row">
-        <div class="col-lg-3">
-            <div class="ui button basic blue big">
-                Doctor&nbsp; | &nbsp;22 Caders
+        <div *ngFor="let profession of professions" class="col-lg-4">
+            <div class="box">
+                <div class="row">
+                    <div class="col-sm-9 title">{{profession.name | titlecase}}</div>
+                    <div class="col-sm-3 tag">{{profession.caders.length}} Caders</div>
+                </div>
             </div>
         </div>
     </div>

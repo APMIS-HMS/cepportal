@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfessionService } from '../../services/profession.service';
+import { Profession } from '../../models/profession';
+import { TitleCasePipe } from '@angular/common';
+
 
 declare var $;
 
@@ -8,10 +12,12 @@ declare var $;
   styleUrls: ['./profession.component.css']
 })
 export class ProfessionComponent implements OnInit {
+  professions: Profession[];
 
-  constructor() { }
+  constructor(public professionService: ProfessionService) { }
 
   ngOnInit() {
+    this.getProfession();
   }
 
   addProfessionView() {
@@ -19,6 +25,14 @@ export class ProfessionComponent implements OnInit {
     .modal('show', {
       closable : false
     });
+  }
+
+  getProfession() {
+    this.professionService.get()
+      .subscribe(res => {
+        this.professions = res.data;
+        console.log(this.professions);
+      });
   }
 
 }
