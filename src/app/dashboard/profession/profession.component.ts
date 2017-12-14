@@ -3,8 +3,6 @@ import { ProfessionService } from '../../services/profession.service';
 import { Profession } from '../../models/profession';
 import { TitleCasePipe } from '@angular/common';
 import { Router } from '@angular/router';
-
-
 declare var $;
 
 @Component({
@@ -19,6 +17,7 @@ export class ProfessionComponent implements OnInit {
 
   ngOnInit() {
     this.getProfession();
+    $('.ui.dropdown').dropdown();
   }
 
   addProfessionView() {
@@ -38,5 +37,17 @@ export class ProfessionComponent implements OnInit {
 
   getProfessionDetails(id) {
     this.router.navigate(['/dashboard/profession', id]);
+  }
+
+  edit(id) {
+    $('#e' + id).toggleClass('hidden');
+    $('#t' + id).toggleClass('hidden');
+  }
+
+  more(id) {
+    $('#' + id + '.expanded').toggleClass('show');
+    console.log($('#' + id + '.expanded'));
+    $('#' + id).find('i').toggleClass('down');
+    $('#' + id).find('i').toggleClass('up');
   }
 }

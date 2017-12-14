@@ -1,22 +1,41 @@
 <div class="page-content">
     <div class="container-fluid">
         <div class="row">
-            <h2 class="col-lg-10 title">Professions
-            </h2>
-            <a (click)="addProfessionView()" class="col-lg-2 box">
+            <h2 class="title">Professions</h2>
+            <a (click)="addProfessionView()" class="button pull-right">
                 <i class="icon add"></i> Add Profession
             </a>
         </div>
     </div>
     <div class="row">
-        <a *ngFor="let profession of professions" class="col-lg-4">
-            <div class="box" (click)="getProfessionDetails(profession._id)">
-                <div class="row">
-                    <div class="col-sm-9 title">{{profession.name | titlecase}}</div>
+        <div *ngFor="let profession of professions; let i = index" class="col-lg-4">
+            <div class="box">
+                <div class="row" id="{{i}}" (click)="more(i)">
+                    <div class="col-sm-8 title"><span id="t{{i}}">{{profession.name | titlecase}}</span>
+                        <div id="e{{i}}" class="ui input edit hidden">
+                            <input type="text" [(ngModel)]="profession.name">
+                        </div>
+                    </div>
                     <div class="col-sm-3 tag">{{profession.caders.length}} Caders</div>
+                    <div class="col-sm-1">
+                        <i class="icon angle down"></i>
+                    </div>
+                </div>
+                <div class="row expanded" id="{{i}}">
+                    <div class="ui secondary labeled icon menu">
+                        <a class="item" (click)="getProfessionDetails(profession._id)">
+                            <i class="icon unhide"></i> View
+                        </a>
+                        <a class="item" (click)="edit(i)">
+                            <i class="icon edit"></i> Quick Edit
+                        </a>
+                        <a class="item">
+                            <i class="icon trash"></i> Delete
+                        </a>
+                    </div>
                 </div>
             </div>
-        </a>
+        </div>
     </div>
 </div>
 <add-profession></add-profession>
