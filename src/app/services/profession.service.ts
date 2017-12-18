@@ -18,4 +18,11 @@ export class ProfessionService {
     .map(res => res.json());
   }
 
+  quickEdit(id, name) {
+    const payload = {
+      'name' : name
+    };
+    return this.http.patch(CONSTANTS.PROFESSION + '/' + id, payload);
+  }
+
 }

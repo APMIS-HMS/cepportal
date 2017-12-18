@@ -50,4 +50,16 @@ export class ProfessionComponent implements OnInit {
     $('#' + id).find('i').toggleClass('down');
     $('#' + id).find('i').toggleClass('up');
   }
+
+  quickEdit(i, id, name) {
+    console.log(i);
+    console.log($('#icon' + i).removeClass('hidden'));
+    // $('#e' + i).find('i');
+    this.professionService.quickEdit(id, name)
+      .subscribe(res => {
+        console.log(res);
+        console.log($('#icon' + i).addClass('hidden'));
+        this.edit(i);
+      });
+  }
 }

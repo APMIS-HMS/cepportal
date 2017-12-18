@@ -12,8 +12,9 @@
             <div class="box">
                 <div class="row" id="{{i}}" (click)="more(i)">
                     <div class="col-sm-8 title"><span id="t{{i}}">{{profession.name | titlecase}}</span>
-                        <div id="e{{i}}" class="ui input edit hidden">
-                            <input type="text" [(ngModel)]="profession.name">
+                        <div id="e{{i}}" class="ui left input edit hidden loading">
+                            <input type="text" [(ngModel)]="profession.name" (keyup.enter)="quickEdit(i,profession._id,profession.name)">
+                            <i id="icon{{i}}" class="search icon hidden"></i>
                         </div>
                     </div>
                     <div class="col-sm-3 tag">{{profession.caders.length}} Caders</div>
