@@ -5,22 +5,26 @@
             <button class="ui blue button">
                     Name
                 </button>
-            <input type="text" placeholder="e.g. Nurse">
+            <input type="text" [(ngModel)]="name" placeholder="e.g. Nurse">
         </div>
         <br><br>
         <div class="ui left action input">
             <button class="ui blue button">
                     Create Caders
                 </button>
-            <input type="text" placeholder="e.g. Senior Consultant">
+            <input type="text" (keyup.enter)="addCaders(editCader)" [(ngModel)]="editCader" placeholder="e.g. Senior Consultant">
         </div>
         <br><br>
         <div>
-            <button class="ui grey button">Consultant</button>
+            <button *ngFor="let cader of caders" class="ui right grey icon labeled button" style="margin:10px;">
+                {{cader.name}}
+                <i (click)="deleteCader(cader)" class="right icon delete"></i>
+            </button>
         </div>
-        <span>Press enter to add</span>
+        <div style="color: #f00" *ngIf="error.isSet">{{error.message}}</div>
+
     </div>
     <div class="actions">
-        <button class="ui blue button">Add</button>
+        <button class="ui blue button" (click)="addProfession()">Add</button>
     </div>
 </div>
