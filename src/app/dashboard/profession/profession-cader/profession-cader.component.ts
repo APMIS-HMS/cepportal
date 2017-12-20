@@ -36,6 +36,26 @@ export class ProfessionCaderComponent implements OnInit {
       this.profession = res;
     });
   }
+
+  add() {
+    $('#addModal')
+    .modal({
+      closable  : false,
+      onApprove : () => {
+        this.addCader($('#add-content').val());
+      }
+    })
+    .modal('show');
+  }
+
+  addCader(name) {
+    const cader: Cader = {
+      'name' : name
+    };
+    this.profession.caders.push(cader);
+    this.professionService.saveCaders(this.profession._id, this.profession.caders);
+  }
+
   edit(id) {
     $('#e' + id).toggleClass('hidden');
     $('#t' + id).toggleClass('hidden');
@@ -51,12 +71,32 @@ export class ProfessionCaderComponent implements OnInit {
   quickEdit(i, id, name) {
     console.log(i);
     console.log($('#icon' + i).removeClass('hidden'));
-    // $('#e' + i).find('i');
     this.professionService.saveCaders(id, this.profession.caders)
       .subscribe(res => {
         console.log(res);
         console.log($('#icon' + i).addClass('hidden'));
         this.edit(i);
       });
+  }
+
+
+  delete(cader) {
+    $('#deleteModal')
+    .modal({
+      closable  : false,
+      onDeny    : function(){
+
+      },
+      onApprove : () => {
+        console.log(cader);
+        this.deleteCader(cader);
+      }
+    })
+    .modal('show');
+  }
+
+  deleteCader(cader) {
+    this.profession.caders = this.profession.caders.filter(e => e !== cader);
+    this.professionService.saveCaders(this.profession._id, this.profession.caders);
   }
 }

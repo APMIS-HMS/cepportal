@@ -21,7 +21,6 @@ export class ProfessionComponent implements OnInit {
 
   ngOnInit() {
     this.getProfession();
-    $('.ui.dropdown').dropdown();
   }
 
   addProfessionView() {
@@ -77,5 +76,28 @@ export class ProfessionComponent implements OnInit {
     'name' : name
     };
     this.newCaders.push(payload);
+  }
+
+  delete(profession) {
+    const pro = profession;
+    $('#deleteModal')
+    .modal({
+      closable  : false,
+      onDeny    : function(){
+
+      },
+      onApprove : () => {
+        console.log(pro);
+        this.deleteProfession(pro);
+      }
+    })
+    .modal('show');
+  }
+
+  deleteProfession(profession) {
+    this.professionService.delete(profession._id)
+    .subscribe(res => {
+      this.getProfession();
+    });
   }
 }

@@ -4,7 +4,7 @@
         <div class="row">
             <h2 class="title">Professions | {{profession.name}}
             </h2>
-            <a class="pull-right button">
+            <a class="pull-right button" (click)="add()">
                 <i class="icon add"></i> Add Cader
             </a>
         </div>
@@ -28,7 +28,7 @@
                         <a class="item" (click)="edit(i)">
                             <i class="icon edit"></i> Quick Edit
                         </a>
-                        <a class="item">
+                        <a class="item" (click)="delete(cader)">
                             <i class="icon trash"></i> Delete
                         </a>
                     </div>
@@ -38,4 +38,3 @@
         </div>
     </div>
 </div>
-<add-profession></add-profession>
