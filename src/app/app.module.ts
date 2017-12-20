@@ -11,6 +11,7 @@ import { AddProfessionComponent } from './dashboard/profession/add-profession/ad
 import { ProfessionService } from './services/profession.service';
 import { HttpModule } from '@angular/http';
 import { ProfessionCaderComponent } from './dashboard/profession/profession-cader/profession-cader.component';
+import { TitleComponent } from './dashboard/title/title.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProfessionCaderComponent } from './dashboard/profession/profession-cade
     SummaryComponent,
     ProfessionComponent,
     AddProfessionComponent,
-    ProfessionCaderComponent
+    ProfessionCaderComponent,
+    TitleComponent
   ],
   imports: [
     HttpModule,
