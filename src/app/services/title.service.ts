@@ -12,4 +12,11 @@ export class TitleService {
       .map(res => res.json());
   }
 
+  quickEdit(id, name) {
+    const payload = {
+      'name' : name
+    };
+    return this.http.patch(CONSTANTS.TITLES + '/' + id, payload);
+  }
+
 }

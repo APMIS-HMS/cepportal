@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '../../models/title';
 import { TitleService } from '../../services/title.service';
+declare var $;
 
 @Component({
   selector: 'app-title',
@@ -29,6 +30,20 @@ export class TitleComponent implements OnInit {
     console.log($('#' + id + '.expanded'));
     $('#' + id).find('i').toggleClass('down');
     $('#' + id).find('i').toggleClass('up');
+  }
+
+  edit(id) {
+    $('#e' + id).toggleClass('hidden');
+    $('#t' + id).toggleClass('hidden');
+  }
+
+  quickEdit(i, id, name) {
+    $('#icon' + i).removeClass('hidden');
+    this.titleService.quickEdit(id, name)
+      .subscribe(res => {
+        $('#icon' + i).addClass('hidden');
+        this.edit(i);
+      });
   }
 
 }
