@@ -2,8 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <h2 class="title">Titles</h2>
-            <a class="button pull-right">
-                <!-- <a (click)="addTitleView()" class="button pull-right"> -->
+            <a (click)="add()" class="button pull-right">
                 <i class="icon add"></i> Add Title
             </a>
         </div>
@@ -28,7 +27,7 @@
                             <i class="icon edit"></i> Quick Edit
                         </a>
                         <a class="item">
-                            <i class="icon trash"></i> Delete
+                            <i class="icon trash" (click)="delete(title) "></i> Delete
                         </a>
                     </div>
                 </div>

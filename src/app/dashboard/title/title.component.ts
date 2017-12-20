@@ -10,6 +10,7 @@ declare var $;
 })
 export class TitleComponent implements OnInit {
   titles: Title[];
+  title: Title;
 
   constructor(public titleService: TitleService) { }
 
@@ -32,6 +33,27 @@ export class TitleComponent implements OnInit {
     $('#' + id).find('i').toggleClass('up');
   }
 
+  add() {
+    $('#addModal')
+    .modal({
+      closable  : true,
+      onApprove : () => {
+        this.addTitle($('#add-content').val());
+      }
+    })
+    .modal('show');
+  }
+
+  addTitle(name) {
+    const newTitle = {
+      'name' : name
+    };
+    this.titleService.add(newTitle)
+      .subscribe(res => {
+        this.titles.push(res);
+      });
+  }
+
   edit(id) {
     $('#e' + id).toggleClass('hidden');
     $('#t' + id).toggleClass('hidden');
@@ -43,6 +65,27 @@ export class TitleComponent implements OnInit {
       .subscribe(res => {
         $('#icon' + i).addClass('hidden');
         this.edit(i);
+      });
+  }
+
+  delete(title) {
+    $('#deleteModal')
+    .modal({
+      closable  : false,
+      onDeny    : function(){
+
+      },
+      onApprove : () => {
+        this.deleteTitle(title);
+      }
+    })
+    .modal('show');
+  }
+
+  deleteTitle(title) {
+    this.titleService.delete(title._id)
+      .subscribe(res => {
+        this.titles = this.titles.filter(e => e !== title);
       });
   }
 
