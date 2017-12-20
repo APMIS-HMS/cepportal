@@ -24,4 +24,11 @@ export class TitleComponent implements OnInit {
       });
   }
 
+  more(id) {
+    $('#' + id + '.expanded').toggleClass('show');
+    console.log($('#' + id + '.expanded'));
+    $('#' + id).find('i').toggleClass('down');
+    $('#' + id).find('i').toggleClass('up');
+  }
+
 }

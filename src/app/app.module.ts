@@ -13,6 +13,8 @@ import { HttpModule } from '@angular/http';
 import { ProfessionCaderComponent } from './dashboard/profession/profession-cader/profession-cader.component';
 import { TitleComponent } from './dashboard/title/title.component';
 import { TitleService } from './services/title.service';
+import { DeleteComponent } from './dashboard/delete/delete.component';
+import { AddComponent } from './dashboard/add/add.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { TitleService } from './services/title.service';
     ProfessionComponent,
     AddProfessionComponent,
     ProfessionCaderComponent,
-    TitleComponent
+    TitleComponent,
+    DeleteComponent,
+    AddComponent
   ],
   imports: [
     HttpModule,

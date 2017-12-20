@@ -11,8 +11,7 @@
     <div class="row">
         <div *ngFor="let title of titles; let i = index" class="col-lg-4">
             <div class="box">
-                <!-- (click)="more(i)" -->
-                <div class="row" id="{{i}}">
+                <div class="row" id="{{i}}" (click)="more(i)">
                     <div class="col-sm-11 title"><span id="t{{i}}">{{title.name | titlecase}}</span>
                         <div id="e{{i}}" class="ui left input edit hidden loading">
                             <!-- <input type="text" [(ngModel)]="title.name" (keyup.enter)="quickEdit(i,Title._id,Title.name)"> -->
