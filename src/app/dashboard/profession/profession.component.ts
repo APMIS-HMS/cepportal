@@ -61,7 +61,6 @@ export class ProfessionComponent implements OnInit {
   quickEdit(i, id, name) {
     console.log(i);
     console.log($('#icon' + i).removeClass('hidden'));
-    // $('#e' + i).find('i');
     this.professionService.quickEdit(id, name)
       .subscribe(res => {
         console.log(res);

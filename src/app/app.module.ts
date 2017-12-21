@@ -11,6 +11,8 @@ import { AddProfessionComponent } from './dashboard/profession/add-profession/ad
 import { ProfessionService } from './services/profession.service';
 import { HttpModule } from '@angular/http';
 import { ProfessionCaderComponent } from './dashboard/profession/profession-cader/profession-cader.component';
+import { TitleComponent } from './dashboard/title/title.component';
+import { TitleService } from './services/title.service';
 import { DeleteComponent } from './dashboard/delete/delete.component';
 import { AddComponent } from './dashboard/add/add.component';
 
@@ -23,6 +25,7 @@ import { AddComponent } from './dashboard/add/add.component';
     ProfessionComponent,
     AddProfessionComponent,
     ProfessionCaderComponent,
+    TitleComponent,
     DeleteComponent,
     AddComponent
   ],
@@ -32,7 +35,7 @@ import { AddComponent } from './dashboard/add/add.component';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [ProfessionService],
+  providers: [ProfessionService, TitleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
