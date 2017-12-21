@@ -16,6 +16,7 @@ import { TitleService } from './services/title.service';
 import { DeleteComponent } from './dashboard/delete/delete.component';
 import { AddComponent } from './dashboard/add/add.component';
 import { CountryComponent } from './dashboard/country/country.component';
+import { CountryService } from './services/country.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { CountryComponent } from './dashboard/country/country.component';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [ProfessionService, TitleService],
+  providers: [ProfessionService, TitleService, CountryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
