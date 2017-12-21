@@ -15,6 +15,7 @@ import { TitleComponent } from './dashboard/title/title.component';
 import { TitleService } from './services/title.service';
 import { DeleteComponent } from './dashboard/delete/delete.component';
 import { AddComponent } from './dashboard/add/add.component';
+import { CountryComponent } from './dashboard/country/country.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { AddComponent } from './dashboard/add/add.component';
     ProfessionCaderComponent,
     TitleComponent,
     DeleteComponent,
-    AddComponent
+    AddComponent,
+    CountriesComponent,
+    CountryComponent
   ],
   imports: [
     HttpModule,
