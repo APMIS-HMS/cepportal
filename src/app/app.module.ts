@@ -29,7 +29,6 @@ import { CountryComponent } from './dashboard/country/country.component';
     TitleComponent,
     DeleteComponent,
     AddComponent,
-    CountriesComponent,
     CountryComponent
   ],
   imports: [
