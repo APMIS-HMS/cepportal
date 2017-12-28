@@ -19,4 +19,9 @@ export class CountryService {
     return this.http.patch(CONSTANTS.COUNTRIES + '/' + id, payload);
   }
 
+  getState(id) {
+    return this.http.get(CONSTANTS.COUNTRIES + '/' + id)
+    .map(res => res.json());
+  }
+
 }

@@ -7,6 +7,7 @@ import { AddProfessionComponent } from './dashboard/profession/add-profession/ad
 import { ProfessionCaderComponent } from './dashboard/profession/profession-cader/profession-cader.component';
 import { TitleComponent } from './dashboard/title/title.component';
 import { CountryComponent } from './dashboard/country/country.component';
+import { StatesComponent } from './dashboard/country/states/states.component';
 
 const appRoutes: Routes = [
     {path: '', redirectTo: 'auth', pathMatch: 'full'},
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
         {path: 'profession/:id', component: ProfessionCaderComponent},
         {path: 'title', component: TitleComponent},
         {path: 'country', component: CountryComponent}
+        {path: 'country/:id', component: StatesComponent}
 
       ]
     }

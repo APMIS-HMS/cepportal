@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CountryService } from '../../services/country.service';
 import { Country } from '../../models/country';
+import { Router } from '@angular/router';
 declare var $;
 
 @Component({
@@ -10,7 +11,7 @@ declare var $;
 })
 export class CountryComponent implements OnInit {
   countries: Country[];
-  constructor(public countryService: CountryService) { }
+  constructor(public countryService: CountryService, public router: Router) { }
 
   ngOnInit() {
     this.getContries();
@@ -43,5 +44,9 @@ export class CountryComponent implements OnInit {
         $('#icon' + i).addClass('hidden');
         this.edit(i);
       });
+  }
+
+  viewStates(id) {
+    this.router.navigate(['/dashboard/country', id]);
   }
 }

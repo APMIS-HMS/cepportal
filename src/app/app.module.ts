@@ -17,6 +17,7 @@ import { DeleteComponent } from './dashboard/delete/delete.component';
 import { AddComponent } from './dashboard/add/add.component';
 import { CountryComponent } from './dashboard/country/country.component';
 import { CountryService } from './services/country.service';
+import { StatesComponent } from './dashboard/country/states/states.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CountryService } from './services/country.service';
     TitleComponent,
     DeleteComponent,
     AddComponent,
-    CountryComponent
+    CountryComponent,
+    StatesComponent
   ],
   imports: [
     HttpModule,
