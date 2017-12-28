@@ -18,7 +18,7 @@ const appRoutes: Routes = [
         {path : 'profession', component : ProfessionComponent},
         {path: 'profession/:id', component: ProfessionCaderComponent},
         {path: 'title', component: TitleComponent},
-        {path: 'country', component: CountryComponent}
+        {path: 'country', component: CountryComponent},
         {path: 'country/:id', component: StatesComponent}
 
       ]
