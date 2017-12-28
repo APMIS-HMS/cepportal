@@ -13,7 +13,7 @@
                 <div class="row" id="{{i}}" (click)="more(i)">
                     <div class="col-sm-8 title"><span id="t{{i}}">{{country.name | titlecase}}</span>
                         <div id="e{{i}}" class="ui left input edit hidden loading">
-                            <input type="text" [(ngModel)]="country.name" (keyup.enter)="quickEdit(i,profession._id,profession.name)">
+                            <input type="text" [(ngModel)]="country.name" (keyup.enter)="quickEdit(i,country._id,country.name)">
                             <i id="icon{{i}}" class="search icon hidden"></i>
                         </div>
                     </div>
