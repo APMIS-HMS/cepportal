@@ -53,7 +53,9 @@ export class ProfessionCaderComponent implements OnInit {
       'name' : name
     };
     this.profession.caders.push(cader);
-    this.professionService.saveCaders(this.profession._id, this.profession.caders);
+    this.professionService.saveCaders(this.profession._id, this.profession.caders)
+      .subscribe(res => {
+      });
   }
 
   edit(id) {

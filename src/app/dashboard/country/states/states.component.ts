@@ -54,15 +54,22 @@ export class StatesComponent implements OnInit {
 
   addState(name) {
      const newState = {
-      'name' : name
+      'name' : name ,
+      'lgs' : [],
+      'cities' : []
     };
     this.country.states.push(newState);
-    this.countryService.saveState(this.country._id, this.country.states);
+    this.countryService.saveState(this.country._id, this.country.states)
+      .subscribe(res => {
+
+      }, err => {
+        console.log(err);
+      }
+    );
   }
 
   more(id) {
     $('#' + id + '.expanded').toggleClass('show');
-    console.log($('#' + id + '.expanded'));
     $('#' + id).find('i').toggleClass('down');
     $('#' + id).find('i').toggleClass('up');
   }

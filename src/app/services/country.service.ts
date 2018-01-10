@@ -31,9 +31,11 @@ export class CountryService {
 
   saveState(id, states) {
     const payload = {
-      states : states
+      'states' : states
     };
-    return this.http.patch(CONSTANTS.COUNTRIES + '/' + id, payload);
+    console.log(payload);
+    return this.http.patch(CONSTANTS.COUNTRIES + '/' + id, payload)
+      .map(res => res.json());
   }
 
   delete(id) {
