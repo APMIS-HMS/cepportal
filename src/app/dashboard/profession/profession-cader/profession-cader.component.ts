@@ -68,7 +68,7 @@ export class ProfessionCaderComponent implements OnInit {
     $('#' + id).find('i').toggleClass('up');
   }
 
-  quickEdit(i, id, name) {
+  quickEdit(i, id) {
     console.log(i);
     console.log($('#icon' + i).removeClass('hidden'));
     this.professionService.saveCaders(id, this.profession.caders)

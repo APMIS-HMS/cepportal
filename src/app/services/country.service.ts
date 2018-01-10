@@ -12,6 +12,11 @@ export class CountryService {
       .map(res => res.json());
   }
 
+  add(country) {
+    return this.http.post(CONSTANTS.COUNTRIES, country)
+      .map(res => res.json());
+  }
+
   quickEdit(id, name) {
     const payload = {
       'name' : name
@@ -23,5 +28,18 @@ export class CountryService {
     return this.http.get(CONSTANTS.COUNTRIES + '/' + id)
     .map(res => res.json());
   }
+
+  saveState(id, states) {
+    const payload = {
+      states : states
+    };
+    return this.http.patch(CONSTANTS.COUNTRIES + '/' + id, payload);
+  }
+
+  delete(id) {
+    return this.http.delete(CONSTANTS.COUNTRIES + '/' + id)
+      .map(res =>  res.json());
+  }
+
 
 }

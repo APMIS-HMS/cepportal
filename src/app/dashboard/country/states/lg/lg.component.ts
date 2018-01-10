@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-lg',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LgComponent implements OnInit {
 
-  constructor() { }
+  constructor( public location: Location ) { }
 
   ngOnInit() {
   }
 
+
+  back() {
+    this.location.back();
+  }
 }

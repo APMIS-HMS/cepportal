@@ -25,6 +25,28 @@ export class CountryComponent implements OnInit {
       });
   }
 
+  add() {
+    $('#addModal')
+    .modal({
+      closable  : false,
+      onApprove : () => {
+        this.addCountry($('#add-content').val());
+      }
+    })
+    .modal('show');
+  }
+
+  addCountry(name) {
+    const newCountry = {
+      'name' : name
+    };
+    this.countryService.add(newCountry)
+      .subscribe(res => {
+        this.countries.push(res);
+      });
+  }
+
+
   more(id) {
     $('#' + id + '.expanded').toggleClass('show');
     console.log($('#' + id + '.expanded'));
@@ -43,6 +65,28 @@ export class CountryComponent implements OnInit {
       .subscribe(res => {
         $('#icon' + i).addClass('hidden');
         this.edit(i);
+      });
+  }
+
+
+  delete(country) {
+    $('#deleteModal')
+    .modal({
+      closable  : false,
+      onDeny    : function(){
+
+      },
+      onApprove : () => {
+        this.deleteCountry(country);
+      }
+    })
+    .modal('show');
+  }
+
+  deleteCountry(country) {
+    this.countryService.delete(country._id)
+      .subscribe(res => {
+        this.countries = this.countries.filter(e => e !== country);
       });
   }
 
