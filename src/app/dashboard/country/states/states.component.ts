@@ -92,4 +92,24 @@ export class StatesComponent implements OnInit {
     this.router.navigate(['/dashboard/country', id, id2]);
   }
 
+  delete(state) {
+    $('#deleteModal')
+    .modal({
+      closable  : false,
+      onDeny    : function(){
+
+      },
+      onApprove : () => {
+        this.deleteState(state);
+      }
+    })
+    .modal('show');
+  }
+
+  deleteState(state) {
+    this.country.states = this.country.states.filter(e => e !== state);
+    this.countryService.saveState(this.country._id, this.country.states)
+      .subscribe();
+  }
+
 }

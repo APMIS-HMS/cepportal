@@ -99,6 +99,7 @@ export class ProfessionCaderComponent implements OnInit {
 
   deleteCader(cader) {
     this.profession.caders = this.profession.caders.filter(e => e !== cader);
-    this.professionService.saveCaders(this.profession._id, this.profession.caders);
+    this.professionService.saveCaders(this.profession._id, this.profession.caders)
+      .subscribe();
   }
 }
