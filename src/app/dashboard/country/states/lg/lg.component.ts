@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { CountryService } from '../../../../services/country.service';
+import { Country } from '../../../../models/country';
+import { State } from '../../../../models/state';
 declare var $;
 
 @Component({
@@ -11,12 +13,17 @@ declare var $;
 })
 export class LgComponent implements OnInit {
 
-  country;
-  state;
+  country: Country;
+  state: State;
 
   constructor( public location: Location, public activeRoute: ActivatedRoute, public countryService: CountryService ) { }
 
   ngOnInit() {
+    this.init();
+  }
+
+
+  init() {
     this.activeRoute.params.subscribe(params => {
       this.getLGs(params['id'], params['id2']);
        });
@@ -53,6 +60,56 @@ export class LgComponent implements OnInit {
     this.country.states.push(this.state);
     this.countryService.saveState(this.country._id, this.country.states)
       .subscribe();
+  }
+
+
+  more(id) {
+    $('#' + id + '.expanded').toggleClass('show');
+    console.log($('#' + id + '.expanded'));
+    $('#' + id).find('i').toggleClass('down');
+    $('#' + id).find('i').toggleClass('up');
+  }
+
+  edit(id) {
+    $('#e' + id).toggleClass('hidden');
+    $('#t' + id).toggleClass('hidden');
+  }
+
+  quickEdit(i, id) {
+    console.log($('#icon' + i).removeClass('hidden'));
+    this.country.states = this.country.states.filter(e => e._id !== this.state._id);
+    this.country.states.push(this.state);
+    console.log(this.country.states);
+    this.countryService.saveState(id, this.country.states)
+      .subscribe(res => {
+        $('#icon' + i).addClass('hidden');
+        this.edit(i);
+      });
+  }
+
+
+  delete(lg) {
+    $('#deleteModal')
+    .modal({
+      closable  : true,
+      onDeny    : function(){
+
+      },
+      onApprove : () => {
+        this.deleteLG(lg);
+      }
+    })
+    .modal('show');
+  }
+
+  deleteLG(lg) {
+    this.country.states = this.country.states.filter(e => e !== this.state);
+    this.state.lgs = this.state.lgs.filter(e => e !== lg);
+    this.country.states.push(this.state);
+    this.countryService.saveState(this.country._id, this.country.states)
+      .subscribe(
+        res => this.init() , err => this.init()
+      );
   }
 
   back() {

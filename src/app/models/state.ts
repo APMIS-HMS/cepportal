@@ -1,4 +1,6 @@
 export interface State {
-    id?: String;
+    _id?: String;
     name: String;
+    lgs: any;
+    cities: any;
 }

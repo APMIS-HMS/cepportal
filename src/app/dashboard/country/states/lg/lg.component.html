@@ -24,13 +24,10 @@
                 </div>
                 <div class="row expanded" id="{{i}}">
                     <div class="ui secondary labeled icon menu">
-                        <a class="item" (click)="viewLg(country._id,state._id)">
-                            <i class="icon unhide"></i> View
-                        </a>
                         <a class="item" (click)="edit(i)">
                             <i class="icon edit"></i> Quick Edit
                         </a>
-                        <a class="item" (click)="delete(state)">
+                        <a class="item" (click)="delete(lg)">
                             <i class="icon trash"></i> Delete
                         </a>
                     </div>
