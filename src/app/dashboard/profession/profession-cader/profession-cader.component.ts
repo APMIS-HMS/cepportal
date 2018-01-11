@@ -53,7 +53,9 @@ export class ProfessionCaderComponent implements OnInit {
       'name' : name
     };
     this.profession.caders.push(cader);
-    this.professionService.saveCaders(this.profession._id, this.profession.caders);
+    this.professionService.saveCaders(this.profession._id, this.profession.caders)
+      .subscribe(res => {
+      });
   }
 
   edit(id) {
@@ -68,7 +70,7 @@ export class ProfessionCaderComponent implements OnInit {
     $('#' + id).find('i').toggleClass('up');
   }
 
-  quickEdit(i, id, name) {
+  quickEdit(i, id) {
     console.log(i);
     console.log($('#icon' + i).removeClass('hidden'));
     this.professionService.saveCaders(id, this.profession.caders)
@@ -97,6 +99,7 @@ export class ProfessionCaderComponent implements OnInit {
 
   deleteCader(cader) {
     this.profession.caders = this.profession.caders.filter(e => e !== cader);
-    this.professionService.saveCaders(this.profession._id, this.profession.caders);
+    this.professionService.saveCaders(this.profession._id, this.profession.caders)
+      .subscribe();
   }
 }

@@ -1,7 +1,7 @@
 import { State } from "./state";
 
-export interface Title {
+export interface Country {
     _id?: String;
     name: String;
-    states: State[];
+    states?: State[];
 }

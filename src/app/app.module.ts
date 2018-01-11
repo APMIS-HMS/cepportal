@@ -15,6 +15,10 @@ import { TitleComponent } from './dashboard/title/title.component';
 import { TitleService } from './services/title.service';
 import { DeleteComponent } from './dashboard/delete/delete.component';
 import { AddComponent } from './dashboard/add/add.component';
+import { CountryComponent } from './dashboard/country/country.component';
+import { CountryService } from './services/country.service';
+import { StatesComponent } from './dashboard/country/states/states.component';
+import { LgComponent } from './dashboard/country/states/lg/lg.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,10 @@ import { AddComponent } from './dashboard/add/add.component';
     ProfessionCaderComponent,
     TitleComponent,
     DeleteComponent,
-    AddComponent
+    AddComponent,
+    CountryComponent,
+    StatesComponent,
+    LgComponent
   ],
   imports: [
     HttpModule,
@@ -35,7 +42,7 @@ import { AddComponent } from './dashboard/add/add.component';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [ProfessionService, TitleService],
+  providers: [ProfessionService, TitleService, CountryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
