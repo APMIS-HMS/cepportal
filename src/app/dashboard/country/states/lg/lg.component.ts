@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { CountryService } from '../../../../services/country.service';
+declare var $;
 
 @Component({
   selector: 'app-lg',
@@ -32,6 +33,27 @@ export class LgComponent implements OnInit {
       });
   }
 
+  add() {
+    $('#addModal')
+    .modal({
+      closable  : true,
+      onApprove : () => {
+        this.addLG($('#add-content').val());
+      }
+    })
+    .modal('show');
+  }
+
+  addLG(name) {
+    const newLG = {
+      'name' : name
+    };
+    this.country.states = this.country.states.filter(e => e !== this.state);
+    this.state.lgs.push(newLG);
+    this.country.states.push(this.state);
+    this.countryService.saveState(this.country._id, this.country.states)
+      .subscribe();
+  }
 
   back() {
     this.location.back();

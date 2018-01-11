@@ -61,7 +61,7 @@ export class StatesComponent implements OnInit {
     this.country.states.push(newState);
     this.countryService.saveState(this.country._id, this.country.states)
       .subscribe(res => {
-
+        this.getStates(this.country._id);
       }, err => {
         console.log(err);
       }

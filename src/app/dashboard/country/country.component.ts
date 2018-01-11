@@ -72,7 +72,7 @@ export class CountryComponent implements OnInit {
   delete(country) {
     $('#deleteModal')
     .modal({
-      closable  : false,
+      closable  : true,
       onDeny    : function(){
 
       },
